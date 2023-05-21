@@ -86,7 +86,7 @@
 										id="uploadSet"
 										maxFileNameLength="55"
 										maxFileSize="10"
-										uploadUrl="/sap/opu/odata/sap/YSAPUI5_SRV_01/FilesSet/"
+										uploadUrl="/employees/sap/opu/odata/sap/YSAPUI5_SRV_01/FilesSet/"
 										beforeUploadStarts="onFileBeforeUpload"
 										uploadCompleted="onFileUploadComplete"
 										afterItemRemoved="onFileDeleted">
