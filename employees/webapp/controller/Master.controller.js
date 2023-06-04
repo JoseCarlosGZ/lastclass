@@ -1,12 +1,13 @@
 sap.ui.define([
     "employees/controller/BaseController",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator",
+    "sap/ui/core/routing/History"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (BaseController, Filter, FilterOperator) {
+    function (BaseController, Filter, FilterOperator, History) {
         "use strict";
 
         return BaseController.extend("employees.controller.Master", {
@@ -208,6 +209,17 @@ sap.ui.define([
                     sPath = oBinding.getPath();
 
                 this._oEventBus.publish("Layout", "onNavToDetails", sPath);
+            },
+
+            navBack: function () {
+                var oHistory = History.getInstance();
+                var sPreviousHash = oHistory.getPreviousHash();
+                if (sPreviousHash !== undefined) {
+                    window.history.go(-1);
+                } else {
+                    var oRouter = UIComponent.getRouterFor(this);
+                    oRouter.navTo("menu", {}, true);
+                }
             }
 
         });

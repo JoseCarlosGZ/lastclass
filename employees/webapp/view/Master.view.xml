@@ -4,7 +4,13 @@
             xmlns:mvc="sap.ui.core.mvc" 
             displayBlock="true" >
 
-            <Page id="page" title="{i18n>title}">
+            <Page 
+            id="page" 
+            title="{i18n>title}"
+            showSubHeader="true"
+            showNavButton="true"
+            navButtonPress=".onNavBack"
+            >
                 <content>
                     <HBox wrap="Wrap">
                         <Label id="labelEmployee" 
